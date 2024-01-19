@@ -1,5 +1,29 @@
 //case section
 
+function updateCaseNumber(isIncrease){
+    const numberField=document.getElementById('case-number-field');
+    const numberString =numberField.value;
+    const previousNumber=parseInt(numberString);
+    
+    
+
+    let newNumber;
+    if(isIncrease === true){
+        newNumber = previousNumber + 1;
+    }
+    else{
+        newNumber=previousNumber -1;
+    }
+ 
+    numberField.value=newNumber;
+    return newNumber;
+}
+function updateCaseTotalPrice(newCaseNumber){
+    const caseTotalPrice =newCaseNumber * 59;
+    const caseTotalElement = document.getElementById('case-total');
+    caseTotalElement.innerText =caseTotalPrice;
+}
+
 document.getElementById('btn-case-plus').addEventListener('click',function(){
     //  const caseNumberField=document.getElementById('case-number-field');
     //  const caseNumberString=caseNumberField.value;
@@ -12,6 +36,7 @@ document.getElementById('btn-case-plus').addEventListener('click',function(){
     // const caseTotalElement = document.getElementById('case-total');
     // caseTotalElement.innerText =caseTotalPrice;
     updateCaseTotalPrice(newCaseNumber);
+    calculateSubTotal();
 })
 
 document.getElementById('case-number-minus').addEventListener('click',function(){
@@ -27,18 +52,19 @@ document.getElementById('case-number-minus').addEventListener('click',function()
     // const caseTotalElement = document.getElementById('case-total');
     // caseTotalElement.innerText=caseTotalPrice;
     updateCaseTotalPrice(newCaseNumber);
+    calculateSubTotal()
 })
 
 
 
 //phone Scetion
 
-document.getElementById('phone-number-plus').addEventListener('click',function(){
-    getNumberPlus('phone-number-field');
-})
+// document.getElementById('phone-number-plus').addEventListener('click',function(){
+//     getNumberPlus('phone-number-field');
+// })
 
-document.getElementById('phone-number-minus').addEventListener('click',function(){
-    getNumberMinus('phone-number-field');
-})
+// document.getElementById('phone-number-minus').addEventListener('click',function(){
+//     getNumberMinus('phone-number-field');
+// })
 
 
